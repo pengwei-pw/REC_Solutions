@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleForPullCarLog": {
+      "commandName": "Project",
+      "commandLineArgs": "key1=var1\r\nkey2=var2"
+    }
+  }
+}
