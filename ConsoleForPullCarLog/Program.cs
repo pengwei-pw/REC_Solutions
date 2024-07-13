@@ -1,4 +1,5 @@
-﻿using ConsoleForPullCarLog.Services;
+﻿using ConsoleForPullCarLog.Repositorys;
+using ConsoleForPullCarLog.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,11 +18,15 @@ namespace ConsoleForPullCarLog
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((context, configuration) => { 
+                .ConfigureAppConfiguration((context, configuration) =>
+                {
                     configuration.Sources.Clear();
                     configuration.AddJsonFile(@"Config/AppSettings.json", optional: true, reloadOnChange: true);
                     configuration.AddCommandLine(args);
+                }).ConfigureServices((context, services) => {
+                    services.AddScoped<ISampleRepository, SampleRepository>();
                 });
+
         }
     }
 }

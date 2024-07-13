@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ConsoleForPullCarLog.Repositorys;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ namespace ConsoleForPullCarLog.Services
 {
     public class Work
     {
+        private readonly ISampleRepository sampleRepository;
         private readonly IConfiguration configuration;
         private readonly ILogger<Work> logger;
 
 
-        public Work(IConfiguration configuration, ILogger<Work> logger)
+        public Work(ISampleRepository sampleRepository, IConfiguration configuration, ILogger<Work> logger)
         {
+            this.sampleRepository = sampleRepository;
             this.configuration = configuration;
             this.logger = logger;
         }
@@ -28,6 +31,7 @@ namespace ConsoleForPullCarLog.Services
             Trace.WriteLine(timeDump);
             logger.LogInformation($"Pull Log During The {timeDump}");
             logger.LogInformation(configuration["key1"]);
+            sampleRepository.DoSomething();
             Console.ReadKey();
         }
 
