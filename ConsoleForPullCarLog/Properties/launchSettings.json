@@ -2,7 +2,17 @@
   "profiles": {
     "ConsoleForPullCarLog": {
       "commandName": "Project",
-      "commandLineArgs": "key1=var1\r\nkey2=var2"
+      "commandLineArgs": "key1=var1\r\nkey2=var2",
+      "environmentVariables": {
+        "DOTNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "ConsoleForPullCarLog-Prod": {
+      "commandName": "Project",
+      "commandLineArgs": "key1=var1\r\nkey2=var2",
+      "environmentVariables": {
+        "DOTNETCORE_ENVIRONMENT": "Production"
+      }
     }
   }
 }
