@@ -2,6 +2,6 @@
 {
     public interface ISampleRepository
     {
-        public void DoSomething();
+        public void DoSomething(int index);
     }
 }

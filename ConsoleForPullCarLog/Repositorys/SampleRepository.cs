@@ -17,10 +17,28 @@ namespace ConsoleForPullCarLog.Repositorys
             this.configuration = configuration;
             this.logger = logger;
         }
-
-        public void DoSomething()
+        /**
+         * Description : 执行任务
+         * arg index 任务序号
+         */
+        public void DoSomething(int index)
         {
-            logger.LogInformation("this is di");
+            switch (index)
+            {
+                case 0:
+                    CyclicPullLog();
+                    return;
+                case 1:
+                    Console.WriteLine();
+                    return;
+            }
+        }
+
+        //循环拉取日志
+        private void CyclicPullLog()
+        {
+            var timeDump = configuration.GetConnectionString("TimeDump");
+            logger.LogInformation(timeDump);
         }
     }
 }
