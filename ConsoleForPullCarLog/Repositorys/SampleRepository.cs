@@ -17,10 +17,10 @@ namespace ConsoleForPullCarLog.Repositorys
             this.configuration = configuration;
             this.logger = logger;
         }
-        /**
-         * Description : 执行任务
-         * arg index 任务序号
-         */
+        /// <summary>
+        /// dosomething
+        /// </summary>
+        /// <param name="index">work index</param>
         public void DoSomething(int index)
         {
             switch (index)
@@ -29,16 +29,18 @@ namespace ConsoleForPullCarLog.Repositorys
                     CyclicPullLog();
                     return;
                 case 1:
-                    Console.WriteLine();
+                    Console.WriteLine("test1");
                     return;
             }
         }
 
-        //循环拉取日志
+        /// <summary>
+        /// pull log
+        /// </summary>
         private void CyclicPullLog()
         {
             var timeDump = configuration.GetConnectionString("TimeDump");
-            logger.LogInformation(timeDump);
+            
         }
     }
 }
