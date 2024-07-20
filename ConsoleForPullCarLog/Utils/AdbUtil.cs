@@ -19,7 +19,7 @@ namespace ConsoleForPullCarLog.Utils
         /// <returns>执行返回的正确返回和错误返回 格式：正确返回\r\n错误返回</returns>
         public string RunADB(string arguments, out Func<string> outputFunc, out Func<string> errOutputFunc)
         {
-            string cmd = Application.StartupPath + "\\adb-1.0.41\\adb.exe";
+            string cmd = "\\adb-1.0.41\\adb.exe";
             Process p = new Process();
             p.StartInfo.FileName = cmd;           //设定程序名  
             p.StartInfo.Arguments = arguments;    //设定程式执行參數  
@@ -49,7 +49,7 @@ namespace ConsoleForPullCarLog.Utils
         /// <param name="errorDataReceivedEventHandler">命令执行错误结果返回回调</param>
         public void AsyncRunADB(string arguments, DataReceivedEventHandler dataReceivedEventHandler, DataReceivedEventHandler errorDataReceivedEventHandler)
         {
-            string cmd = Application.StartupPath + "\\adb-1.0.41\\adb.exe";
+            string cmd = "\\adb-1.0.41\\adb.exe";
             Process p = new Process();
             p.StartInfo.FileName = cmd;           //设定程序名  
             p.StartInfo.Arguments = arguments;    //设定程式执行參數  
