@@ -17,10 +17,30 @@ namespace ConsoleForPullCarLog.Repositorys
             this.configuration = configuration;
             this.logger = logger;
         }
-
-        public void DoSomething()
+        /// <summary>
+        /// dosomething
+        /// </summary>
+        /// <param name="index">work index</param>
+        public void DoSomething(int index)
         {
-            logger.LogInformation("this is di");
+            switch (index)
+            {
+                case 0:
+                    CyclicPullLog();
+                    return;
+                case 1:
+                    Console.WriteLine("test1");
+                    return;
+            }
+        }
+
+        /// <summary>
+        /// pull log
+        /// </summary>
+        private void CyclicPullLog()
+        {
+            var timeDump = configuration.GetConnectionString("TimeDump");
+            
         }
     }
 }
