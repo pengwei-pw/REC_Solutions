@@ -21,9 +21,9 @@ namespace ConsoleForPullCarLog
                 .ConfigureAppConfiguration((context, configuration) =>
                 {
                     configuration.Sources.Clear();
-                    var enviromentName = Environment.GetEnvironmentVariable("DOTNETCORE_ENVIRONMENT");
-                    //configuration.AddJsonFile(@"Config/AppSettings.json", optional: true, reloadOnChange: true);
-                    configuration.AddJsonFile($"Config/AppSettings.{enviromentName}.json", optional: true, reloadOnChange: true);
+                    //var enviromentName = Environment.GetEnvironmentVariable("DOTNETCORE_ENVIRONMENT");
+                    configuration.AddJsonFile(@"Config/AppSettings.json", optional: true, reloadOnChange: true);
+                    //configuration.AddJsonFile($"Config/AppSettings.{enviromentName}.json", optional: true, reloadOnChange: true);
                     configuration.AddCommandLine(args);
                 }).ConfigureServices((context, services) => {
                     services.AddScoped<ISampleRepository, SampleRepository>();
