@@ -26,6 +26,29 @@ namespace WpfForThreadDemo
         {
             InitializeComponent();
             ThreadDemo.Click += ThreadDemo_Click;
+            LinqDemo.Click += LinqDemo_Click;
+        }
+        /**
+         * Linq demo
+         */
+        private void LinqDemo_Click(object sender, RoutedEventArgs e)
+        {
+            // Specify the data source.
+            int[] scores = { 97, 92, 81, 60 };
+
+            // Define the query expression.
+            IEnumerable<int> scoreQuery =
+                from score in scores
+                where score > 80
+                select score;
+
+            // Execute the query.
+            foreach (int i in scoreQuery)
+            {
+                Trace.Write(i + " ");
+            }
+
+            // Output: 97 92 81
         }
 
         private void ThreadDemo_Click(object sender, RoutedEventArgs e)
