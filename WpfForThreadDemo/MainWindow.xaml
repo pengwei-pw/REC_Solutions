@@ -8,5 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="ThreadDemo" Content="Thread" HorizontalAlignment="Left" Height="31" Margin="43,29,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Width="120" Height="31" Margin="206,29,474,375">
+            <ControlTemplate>
+                <Grid>
+                    <Ellipse Name="faceEllipse" Width="{TemplateBinding Button.Width}" Height="{TemplateBinding Control.Height}"  Fill="{TemplateBinding Button.Background}"/>
+                    <TextBlock Name="txtBlock" Margin="{TemplateBinding Button.Padding}" VerticalAlignment="Center"  HorizontalAlignment="Center"  Text="{TemplateBinding Button.Content}" />
+                </Grid>
+            </ControlTemplate>
+        </Button>
     </Grid>
 </Window>
