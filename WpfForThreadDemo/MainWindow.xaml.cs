@@ -63,6 +63,7 @@ namespace WpfForThreadDemo
         {
             //Thread.Sleep(2000);
             MessageBox.Show("doj ok");
+            //do some work
         }
         public async void ToDoWorking()
         {
