@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 
 namespace WpfForThreadDemo
 {
+
+    record City(string Name, long Population);
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -26,11 +28,50 @@ namespace WpfForThreadDemo
         {
             InitializeComponent();
             ThreadDemo.Click += ThreadDemo_Click;
-            LinqDemo.Click += LinqDemo_Click;
+            LinqDemo1.Click += LinqDemo_Click;
+            LinqDemo2.Click += LinqDemo2_Click;
         }
-        /**
-         * Linq demo
-         */
+        /// <summary>
+        /// linqDemo2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LinqDemo2_Click(object sender, RoutedEventArgs e)
+        {
+            City[] cities = new City[]
+            {
+                new City("Tokyo", 37_833_000),
+                new City("Delhi", 30_290_000),
+                new City("Shanghai", 27_110_000),
+                new City("São Paulo", 22_043_000)
+            };
+
+            //Query syntax
+            IEnumerable<City> queryMajorCities =
+                from city in cities
+                where city.Population > 100000
+                select city;
+
+            // Execute the query to produce the results
+            foreach (City city in queryMajorCities)
+            {
+                Trace.WriteLine(city);
+            }
+
+            // Output:
+            // City { Population = 120000 }
+            // City { Population = 112000 }
+            // City { Population = 150340 }
+
+            // Method-based syntax
+            IEnumerable<City> queryMajorCities2 = cities.Where(c => c.Population > 100000);
+        }
+
+        /// <summary>
+        /// linqDemo1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LinqDemo_Click(object sender, RoutedEventArgs e)
         {
             // data resource
