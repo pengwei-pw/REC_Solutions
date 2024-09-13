@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="ThreadDemo" Content="Thread" HorizontalAlignment="Left" Height="31" Margin="43,29,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Width="120" Height="31" Margin="206,29,474,375">
+        <Button Width="120" Height="31" Margin="185,29,495,375">
             <ControlTemplate>
                 <Grid>
                     <Ellipse Name="faceEllipse" Width="{TemplateBinding Button.Width}" Height="{TemplateBinding Control.Height}"  Fill="{TemplateBinding Button.Background}"/>
@@ -16,7 +16,8 @@
                 </Grid>
             </ControlTemplate>
         </Button>
-        <Button x:Name="LinqDemo1" Content="LinqDemo1" HorizontalAlignment="Left" Height="31" Margin="360,29,0,0" VerticalAlignment="Top" Width="109"/>
-        <Button x:Name="LinqDemo2" Content="LinqDemo2" HorizontalAlignment="Left" Height="31" Margin="514,29,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="LinqDemo1" Content="LinqDemo1" HorizontalAlignment="Left" Height="31" Margin="333,29,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.44,0.573"/>
+        <Button x:Name="LinqDemo2" Content="LinqDemo2" HorizontalAlignment="Left" Height="31" Margin="470,29,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="LinqDemo3" Content="LinqDemo3" HorizontalAlignment="Left" Height="31" Margin="612,29,0,0" VerticalAlignment="Top" Width="112"/>
     </Grid>
 </Window>
