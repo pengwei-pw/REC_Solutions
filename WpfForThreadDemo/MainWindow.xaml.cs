@@ -33,16 +33,28 @@ namespace WpfForThreadDemo
          */
         private void LinqDemo_Click(object sender, RoutedEventArgs e)
         {
-            // Specify the data source.
+            // data resource
             int[] scores = { 97, 92, 81, 60 };
 
-            // Define the query expression.
+            // Define the query expression.未执行查询
             IEnumerable<int> scoreQuery =
                 from score in scores
                 where score > 80
                 select score;
 
-            // Execute the query.
+            //将查询结果存储
+            var scoreQuerylist = scoreQuery.ToList();
+            Trace.WriteLine(scoreQuerylist[2]);
+
+            scores[2] = 88;
+            Trace.WriteLine(scoreQuerylist[2]);
+
+            var scoreQuerylistRe = scoreQuery.ToList();
+            Trace.WriteLine(scoreQuerylistRe[2]);
+            //打印结果 81 81 88 
+            //由此结果得出每次查询都是对数据源的重新查询
+
+            // Execute the query. 立即查询
             foreach (int i in scoreQuery)
             {
                 Trace.Write(i + " ");
